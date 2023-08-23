@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table border="2">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <Th>Desc</Th>
+            <Th>Update</Th>
+            <Th>Delete</Th>
+        </tr>
+        {% for i in res %}
+        <tr>
+            <td>{{i.Name}}</td>
+            <td>{{i.age}}</td>
+            <td>{{i.Email}}</td>
+            <td>{{i.mobile}}</td>
+            <td>{{i.desc}}</td>
+            <td><a href="{% url 'update' pk=i.id %}">Update</a></td>
+            <td><a href="{% url 'delete' pk=i.id %}">delete</a></td>
+        </tr>
+
+        {%endfor%}
+    </table>
+</body>
+
+</html>

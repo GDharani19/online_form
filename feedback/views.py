@@ -16,7 +16,22 @@ def createfeed(request):
 
 
 def readfeed(request):
-    
     res=feedbackmodel.objects.all()
     return render(request,'details.html',{"res":res})
 
+def updatefeed(request,pk):
+    res = feedbackmodel.objects.get(id=pk)
+    form = feedbackform(instance=res)
+    if request.method =='POST':
+        res=feedbackmodel.objects.get(id=pk)
+        form = feedbackform(request.POST,instance=res)
+        form.save()
+        return HttpResponse("Data is stored")
+    return render(request,"homepage.html",{'form':form})
+
+def deletefeed(request,pk):
+    res = feedbackmodel.objects.get(id=pk)
+    if request.method =='POST':
+        res=feedbackmodel.objects.get(id=pk).delete()
+        return HttpResponse("Data is deleted")
+    return render(request,"delete_confirm.html",{'res':res})

@@ -11,7 +11,7 @@ def login_view(request):
             return redirect('home')  # Redirect to a page after login
     else:
         form = AuthenticationForm()
-    return render(request, 'details.html', {'form': form})
+    return render(request, 'homepage.html', {'form': form})
 
 def logout_view(request):
     logout(request)
@@ -26,5 +26,5 @@ def register_view(request):
             return redirect('/auth/login')  # Redirect to a page after registration
     else:
         form = UserCreationForm()
-    return render(request, 'details.html', {'form': form})
+    return render(request, 'homepage.html', {'form': form})
 

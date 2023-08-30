@@ -7,13 +7,14 @@ from django.conf import settings
 from django.core.mail import send_mail
 from django.contrib.auth.models import User
 from django.contrib.auth import login
+from django.contrib import messages
 # Create your views here.
 
 def createfeed(request):
     form=feedbackform()
     if request.method=="POST":
         form=feedbackform(request.POST)
-        # form.save()
+        form.save()
         subject = 'welcome to ITCTRLS world'
         message = f'Hi {request.POST.get("Name")}, thank you for registering in ITCTRLS Technologies.'
         email_from = settings.EMAIL_HOST_USER
@@ -41,7 +42,8 @@ def deletefeed(request,pk):
     res = feedbackmodel.objects.get(id=pk)
     if request.method =='POST':
         res=feedbackmodel.objects.get(id=pk).delete()
-        return HttpResponse("Data is deleted")
+        # return HttpResponse("Data is deleted")
+        messages.error(request,'Data deleted succesfully')
     return render(request,"delete_confirm.html",{'res':res})
 
 def signup(request):

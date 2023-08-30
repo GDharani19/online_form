@@ -5,32 +5,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #table_properties
+        {
+            background-color:rgb(212, 212, 241);
+            position:relative;
+            top: 100px;
+            height: 550px;
+            width: 70%;
+            text-align: center;
+            color: navy;
+            border: 3px solid black;
+        }
+        body{
+            background-image: url(https://img.freepik.com/premium-photo/bubble-bokeh-abstract-background-with-dark-blue-color_60949-138.jpg?w=360);
+            background-repeat: no-repeat;
+            background-size: 100% 750px;
+        }
+        th{
+            font-size: 20px;
+            color: rgb(8, 8, 34);
+        }
+        a{
+            text-decoration: none;
+            color: crimson;
+        }
+        #bre{
+            border: 2px solid black;
+        }
+    </style>
 </head>
 
-<body align="center">
-    <table border="2">
-        <tr>
-            <th>Name</th>
-            <th>Age</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <Th>Desc</Th>
-            <Th>Update</Th>
-            <Th>Delete</Th>
+<body>
+    <center>
+    <table rules="all" id="table_properties">
+        <tr id="bre">
+            <th id="bre">Name</th>
+            <th id="bre">Age</th>
+            <th id="bre">Email</th>
+            <th id="bre">Phone</th>
+            <Th id="bre">Desc</Th>
+            <Th id="bre">Update</Th>
+            <Th id="bre">Delete</Th>
         </tr>
         {% for i in res %}
-        <tr>
-            <td>{{i.Name}}</td>
-            <td>{{i.age}}</td>
-            <td>{{i.Email}}</td>
-            <td>{{i.mobile}}</td>
-            <td>{{i.desc}}</td>
-            <td><a href="{% url 'update' pk=i.id %}">Update</a></td>
-            <td><a href="{% url 'delete' pk=i.id %}">delete</a></td>
+        <tr id="bre">
+            <td id="bre">{{i.Name}}</td>
+            <td id="bre">{{i.age}}</td>
+            <td id="bre">{{i.Email}}</td>
+            <td id="bre">{{i.mobile}}</td>
+            <td id="bre">{{i.desc}}</td>
+            <td id="bre"><a href="{% url 'update' pk=i.id %}">Update</a></td>
+            <td id="bre"><a href="{% url 'delete' pk=i.id %}">delete</a></td>
         </tr>
 
         {%endfor%}
     </table>
+</center>
+
 </body>
 
 </html>

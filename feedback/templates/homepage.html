@@ -5,13 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feedback</title>
+    <style>
+        body
+        {
+            background-image: url(https://img.freepik.com/free-photo/top-view-background-beautiful-white-grey-brown-cream-blue-background_140725-72219.jpg);
+            background-repeat: no-repeat;
+            background-size: 100% 750px;
+        }
+        form{
+            font-size: 20px;
+        }
+        input{
+            height: 30px;
+            width: 300px;
+            font-size: 15px;
+        }
+        #a{
+            height: 30px;
+            width: 100px;
+        }
+    </style>
 </head>
 
 <body align="center">
     <form method="post">
         {%csrf_token%}
         {{form.as_p}}
-        <input type="submit" value="Login">
+        <input id="a" type="submit" value="Login">
     </form>
 </body>
 

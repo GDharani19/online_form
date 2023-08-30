@@ -5,13 +5,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body
+        {
+            background-image: url(https://img.freepik.com/free-photo/top-view-background-beautiful-white-grey-brown-cream-blue-background_140725-72219.jpg);
+            background-repeat: no-repeat;
+            background-size: 100% 750px;
+        }
+        form{
+            position: relative;
+            font-size: 17px;
+            top: 300px;
+        }
+        input{
+            font-size: 18px;
+            height: 30px;
+            width: 150px;
+        }
+        li{
+            font-size: 25px;
+        }
+    </style>
 </head>
 
 <body align="center">
     <form action="" method="post">
         {%csrf_token%}
+        
+        {% if messages %}
+            <ul class='messages'>
+                {% for msg in messages %}
+                    <li>{{msg}}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
         <h1>Are You sure to delete the {{res.name}} record</h1>
         <input type="submit" value="Delete">
+        {% endif %}
     </form>
 </body>
 
